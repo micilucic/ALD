@@ -2,34 +2,55 @@ package UE2_WagonLinkedList;
 
 public class WagonLinkedList {
     // *** Membervariablen ***
-    // TODO
+   private Node first;
+   private Node last;
 
     // *** Methoden ***
 
     public Node getFirst() {
-        // TODO
-        return null;
+        return first;
     }
 
-    public void setFirst(Node first) {
-        // TODO
-    }
 
     public Node getLast() {
         // TODO
-        return null;
+        return last;
     }
 
-    public void setLast(Node last) {
-        // TODO
-    }
 
     void insertWagonAtFirstPos(String wagonId) {
-        // TODO
+         Node help = new Node();
+         help.setWagonId(wagonId);
+
+         if (first == null){
+             first = help;
+             last = help;
+         } else {
+             help.setNext(first);
+             first.setPrev(help);
+             first = help;
+         }
     }
 
     void removeWagonFromLastPos() {
-        // TODO
+       Node help = new Node();
+
+       if (first == null) {
+           return;
+       } else if (first == last) {
+           first = null;
+           last = null;
+       }
+       else {
+          last.getPrev().setNext(null);
+          last = last.getPrev();
+          /*
+          Mit Hilfsvariable:
+          Node help = last.getPrev();
+          help.setNext(null);
+          last = help;
+           */
+       }
     }
 
     void printList() {

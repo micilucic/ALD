@@ -3,20 +3,27 @@ package UE3_BookStack;
 public class Node
 {
     // *** Membervariablen ***
-    // TODO
+    private final String bookTitle;
+    private Node next;
+
 
     // *** Konstruktor ***
+    public Node(String bookTitle) {
+        this.bookTitle = bookTitle;
 
-    public Node(String bookTitle)
-    {
-        // TODO: Implementierung
     }
-
     // *** Getter- und Setter-Methoden ***
 
     public String getBookTitle()
     {
-        // TODO: Implementierung
-        return null;
+        return bookTitle;
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
     }
 }

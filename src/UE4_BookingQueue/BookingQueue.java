@@ -3,22 +3,41 @@ package UE4_BookingQueue;
 public class BookingQueue
 {
     // *** Membervariablen ***
-    // TODO
+        private Node front;
+        private Node rear;
 
     // *** Getter- und Setter-Methoden ***
 
     public Node getFront()
     {
-        // TODO: Implementierung vervollständigen
-        return null;
+        return front;
     }
 
+    public Node getRear() {
+        return rear;
+    }
+
+    public void setFront(Node front) {
+        this.front = front;
+    }
+
+    public void setRear(Node rear) {
+        this.rear = rear;
+    }
 
     // *** Operationen ***
 
     public void enqueue(Booking newBooking)
     {
-        // TODO: Implementierung vervollständigen
+        Node newNode = new Node(newBooking);
+
+        if (front == null) {
+            front = newNode;
+            rear = newNode;
+        } else {
+            rear.setNext(newNode);
+            rear = newNode;
+        }
     }
 
     public Booking dequeue() throws QueueEmptyException
