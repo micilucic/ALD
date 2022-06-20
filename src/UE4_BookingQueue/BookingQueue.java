@@ -40,15 +40,30 @@ public class BookingQueue
         }
     }
 
-    public Booking dequeue() throws QueueEmptyException
+   public Booking dequeue() throws QueueEmptyException
     {
-        // TODO: Implementierung vervollständigen
-        return null;
+        if (front == null) {
+            throw new QueueEmptyException();
+        } else if (front == rear) {
+            Booking result = front.getBooking();
+            front = null;
+            rear = null;
+            return result;
+        } else {
+            Booking result = front.getBooking();
+            front = front.getNext();
+            return result;
+        }
     }
 
     public int getCount()
     {
-        // TODO: Implementierung vervollständigen
-        return 0;
+        int count = 0;
+        Node currentNode = front;
+        while (currentNode != null) {
+            count++;
+            currentNode = currentNode.getNext();
+        }
+        return count;
     }
 }
